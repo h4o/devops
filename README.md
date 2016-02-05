@@ -9,7 +9,15 @@ Groupe DevOps : 2
 - Fabien Vicente
 
 
-## Mutation applicables
+## Mutations applicables
 
 
+## Modules définis 
 
+### Module rapportHTML 
+
+- entrées : rapport programme original, rapport Pi' (rapports des mutants)
+- sorties : une page HTML
+
+
+### Module ...
