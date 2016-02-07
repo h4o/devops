@@ -1,6 +1,6 @@
 # Kill-2-survive
 
-#TO-DO
+## TO-DO
 1. Dans le readme :
 	- rajouter ce que l'on compte faire dans le projet
 	
