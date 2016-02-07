@@ -9,27 +9,27 @@ Quelles mutations, où les appliquer, comment les appliquer ?
 
 ## Opérateurs de mutations applicables
 
-### ABS - Absolute value insertion
+#### ABS - Absolute value insertion
 **Description :**
 
 **Exemple :**
 
-### AOR - Arithmetic operator replacement
+#### AOR - Arithmetic operator replacement
 **Description :** 
 
 **Exemple :**
 
-### LCR - Logical connector replacement
+#### LCR - Logical connector replacement
 **Description :** 
 
-**Exemple : **
+**Exemple :**
 
-### ROR - Relational operator replacement
-**Description : ** 
+#### ROR - Relational operator replacement
+**Description :** 
 
-**Exemple : **
+**Exemple :**
 
-### UOI - Unary operator insertion
-**Description : ** l’opérateur de mutation UOI 
+#### UOI - Unary operator insertion
+**Description :** l’opérateur de mutation UOI 
 
-**Exemple : **
+**Exemple :**
