@@ -8,6 +8,7 @@ Quelles mutations, où les appliquer, comment les appliquer ?
 
 ## Description de la chaine de build
 ![description](./Ressources/images/description.png)
+
 Le système va être composé de 4 parties:
 Un script bash qui va s’occuper de coordonner les différentes parties:
 configurer le processor spoon pour générer les bons mutants
@@ -33,14 +34,14 @@ un programme Java pour analyser les différents rapports et générer un rapport au
 **Exemple :**
 
 #### LCR - Logical connector replacement
-**Description : ** l’opérateur LCR remplace un opérateur logique ( AND, OR …) par un autre opérateur logique.
+**Description :** l’opérateur LCR remplace un opérateur logique ( AND, OR …) par un autre opérateur logique.
 
 #### ROR - Relational operator replacement
-**Description : ** l’opérateur ROR va remplacer un opérateur relationnel par un autre.
+**Description :** l’opérateur ROR va remplacer un opérateur relationnel par un autre.
 
 **Exemple :**
-Code original : 	if ( i < 10 ) …
-Mutant ROR : 		if ( i >= 10 ) ...
+Code original : 	'if ( i < 10 )'
+Mutant ROR : 		'if ( i >= 10 )'
 
 #### UOI - Unary operator insertion
 **Description :** l’opérateur de mutation UOI va simplement insérer des opérateurs unaires dans le code
