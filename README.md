@@ -10,10 +10,10 @@ Groupe DevOps : 2
 
 ## Présentation du sujet
 
-Dans le cadre de nos études en DevOps, nous devons réaliser un *framework de tests par mutation*. 
-Ce framework permettra ainsi de pouvoir tester *l'efficacité d'un banc de tests unitaires* en Java.
+Dans le cadre de nos études en DevOps, nous devons réaliser un **framework de tests par mutation**. 
+Ce framework permettra ainsi de pouvoir tester **l'efficacité d'un banc de tests unitaires** en Java.
 
-Le framework prend donc en entrée des s*ources Java* lui permettant donc de pouvoir s'appliquer sur n'importe quel programme.
+Le framework prend donc en entrée des **sources Java** lui permettant donc de pouvoir s'appliquer sur n'importe quel programme.
 
 Le nombre de mutants générés étant proportionnel à la taille du code passé en entrée, nous appliquerons certaines optimisations telles que :
 - **Parallel execution** : Après configuration passée en paramètre du framework, le processus sera parrallelisé. 
