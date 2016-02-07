@@ -10,7 +10,7 @@ Quelles mutations, où les appliquer, comment les appliquer ?
 ## Opérateurs de mutations applicables
 
 ### ABS - Absolute value insertion
-**Description : ** 
+_Description : _
 
 **Exemple : **
 
