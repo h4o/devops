@@ -105,3 +105,18 @@ AND mutant 2 :	`Trace.trace(Trace.Event,sccsid);`
 
 #### OMR - Overriding Method declaration Removal
 **Description :** Cet opérateur supprime la déclaration d’une méthode redéfinie (override) ainsi la méthode non redéfinie sera utilisée dans la suite du programme.
+
+
+##Méthode d’application des mutations
+
+Pour chaque itération nous modifierons qu’une classe à la fois. Nous appliquerons n mutations aléatoires 
+(où n est un nombre donné par l’utilisateur) au code de la classe à modifier à des emplacements aléatoires.  
+Il est aussi possible d’appliquer tous les mutants (ou une partie de la liste de mutants) à tous les endroits possibles pour chaque classe, 
+une mutation à la fois. Ou de générer un certain nombre de mutations aléatoires pour chaque classe que l’on fait muter.
+
+## Outils utilisés
+- **Java** pour l’application de mutations, l’analyse des rapports et la création de rapports HTML
+- **Bash** pour le script d’execution du framework
+- **Maven** pour la chaine de build
+- **Spoon** pour l’édition du java à la volée (avec le plugin maven de Spoon)
+- **Bootstrap et Highchart** pour la mise en forme du rapport.
