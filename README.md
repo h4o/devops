@@ -16,10 +16,10 @@ Ce framework permettra ainsi de pouvoir tester l'efficacité d'un banc de tests 
 Le framework prend donc en entrée des sources Java lui permettant donc de pouvoir s'appliquer sur n'importe quel programme.
 
 Le nombre de mutants générés étant proportionnel à la taille du code passé en entrée, nous appliquerons certaines optimisations telles que :
-- Parallel execution : Après configuration passée en paramètre du framework, le processus sera parrallelisé. 
-- Selective mutation : Si l'option est demandée, nous n'appliquerons que les mutations qui sont généralement les plus intéressantes selon une moyenne basée sur projets réalistes communautaires. 
+- **Parallel execution** : Après configuration passée en paramètre du framework, le processus sera parrallelisé. 
+- **Selective mutation** : Si l'option est demandée, nous n'appliquerons que les mutations qui sont généralement les plus intéressantes selon une moyenne basée sur projets réalistes communautaires. 
 Ainsi le nombre de mutants générés sera plus faible mais ceux-ci seront les plus importants à observer.
-- Coverage data : Nous pensons aussi à n'appliquer les tests concernés par les mutations effectuées. Cependant n'ayant point de pistes pour manipuler la converture de chaque tests, cette optimisation représente un certain risque que nous ne prendrons qu'une fois les autres optimisations implémentées.
+- **Coverage data** : Nous pensons aussi à n'appliquer les tests concernés par les mutations effectuées. Cependant n'ayant point de pistes pour manipuler la converture de chaque tests, cette optimisation représente un certain risque que nous ne prendrons qu'une fois les autres optimisations implémentées.
 
 Le rapport de l'execution de notre framework sera au format HTML.
 
