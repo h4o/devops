@@ -40,7 +40,9 @@ un programme Java pour analyser les différents rapports et générer un rapport au
 **Description :** l’opérateur ROR va remplacer un opérateur relationnel par un autre.
 
 **Exemple :**
+
 Code original : 	'if ( i < 10 )'
+
 Mutant ROR : 		'if ( i >= 10 )'
 
 #### UOI - Unary operator insertion
@@ -50,8 +52,11 @@ Mutant ROR : 		'if ( i >= 10 )'
 **Description :** L’opérateur de mutation AND supprime un des paramètres lors de l’appel de la fonction. Ainsi, soit la fonction n’existe pas (et donc l’erreur est obligatoire) soit la fonction avec un paramètre de moins existe ce qui entraine l’appel d’une fonction différente. Le mutant devrait donc être lui aussi tué si les tests unitaires sont corrects, autrement, celà voudrait dire que le paramètre supprimé ne servait à rien. 
 
 **Exemple :**
+
 Code original : 	Trace.trace(Trace.Event,this,sccsid);
+
 AND mutant 1 : 		Trace.trace(this,sccsid); 
+
 AND mutant 2 :		Trace.trace(Trace.Event,sccsid);
 etc.
 
