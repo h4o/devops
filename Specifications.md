@@ -41,9 +41,9 @@ un programme Java pour analyser les différents rapports et générer un rapport au
 
 **Exemple :**
 
-Code original : 	'if ( i < 10 )'
+Code original : 	`if ( i < 10 )`
 
-Mutant ROR : 		'if ( i >= 10 )'
+Mutant ROR : 		`if ( i >= 10 )`
 
 #### UOI - Unary operator insertion
 **Description :** l’opérateur de mutation UOI va simplement insérer des opérateurs unaires dans le code
@@ -53,18 +53,15 @@ Mutant ROR : 		'if ( i >= 10 )'
 
 **Exemple :**
 
-Code original : 	Trace.trace(Trace.Event,this,sccsid);
+Code original : 	`Trace.trace(Trace.Event,this,sccsid);`
 
-AND mutant 1 : 		Trace.trace(this,sccsid); 
+AND mutant 1 : 		`Trace.trace(this,sccsid);` 
 
-AND mutant 2 :		Trace.trace(Trace.Event,sccsid);
+AND mutant 2 :		`Trace.trace(Trace.Event,sccsid);`
 etc.
 
 #### OMR - Overriding Method declaration Removal
  **Description :** Cet opérateur supprime la déclaration d’une méthode redéfinie (override) ainsi la méthode non redéfinie sera utilisée dans la suite du programme.
-
-
-
 
 
 ##Méthode d’application des mutations
