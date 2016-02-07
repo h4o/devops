@@ -52,7 +52,9 @@ Mutant ROR : 		`if ( i >= 10 )`
 **Description :** L’opérateur de mutation AND supprime un des paramètres lors de l’appel de la fonction. Ainsi, soit la fonction n’existe pas (et donc l’erreur est obligatoire) soit la fonction avec un paramètre de moins existe ce qui entraine l’appel d’une fonction différente. Le mutant devrait donc être lui aussi tué si les tests unitaires sont corrects, autrement, celà voudrait dire que le paramètre supprimé ne servait à rien. 
 
 **Exemple :**
-
+`yo
+yo
+yo`
 Code original : 	`Trace.trace(Trace.Event,this,sccsid);`
 
 AND mutant 1 : 		`Trace.trace(this,sccsid);` 
