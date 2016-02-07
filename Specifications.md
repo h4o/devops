@@ -14,7 +14,7 @@ Le système va être composé de 4 parties:
 - un processor qui va générer les mutations
 - un programme Java pour analyser les différents rapports et générer un rapport au format html pour l’utilisateur final
 
-l’utilisateur interface avec le framework via un script Bash qui va s’occuper de la boucle de création de mutant en configurant le processor qui crée le mutant et lançant Maven de façon répétée, il va aussi récupérer les différents rapports de JUnit et du processor afin de les stocker pour l’outil d’analyse. Une fois cette boucle terminé, il lance l’outil d’analyse auquel il fournis tout les rapports afin d’en extraire notre rapport final. 
+L’utilisateur interface avec le framework via un script Bash qui va s’occuper de la boucle de création de mutant en configurant le processor qui crée le mutant et lançant Maven de façon répétée, il va aussi récupérer les différents rapports de JUnit et du processor afin de les stocker pour l’outil d’analyse. Une fois cette boucle terminé, il lance l’outil d’analyse auquel il fournis tout les rapports afin d’en extraire notre rapport final. 
 Un processeur est un programme en Java utilisé par Spoon qui nous permet d’analyser et de modifier du code source, c’est notre processeur qui va nous permettre d’appliquer les différentes mutations. Spoon est appelé à travers un plugin Maven qui lui même utilise notre processor. L’outil d’analyse sera conçu en Java et permettra d’obtenir un rapport d’execution du framework au format HTML.
 
 ## Opérateurs de mutations applicables
