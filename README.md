@@ -8,12 +8,9 @@
 
 Groupe DevOps : 2
 
-- Alexandre CAZALA
+- Alexandre Cazala
 - Pierre Massanes
 - Fabien Vicente
-
-## Mutations applicables
-
 
 ## Modules définis 
 
