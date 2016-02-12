@@ -17,16 +17,34 @@
     <dependency>
       <groupId>fr.inria.gforge.spoon</groupId>
       <artifactId>spoon-core</artifactId>
-      <version>5.1.0-SNAPSHOT</version>
+      <version>5.0.1</version>
     </dependency>
   </dependencies>
-  <repositories>
-    <repository>
-      <id>gforge.inria.fr-snapshot</id>
-      <name>Maven Repository for Spoon Snapshot</name>
-      <url>http://spoon.gforge.inria.fr/repositories/snapshots/</url>
-      <snapshots />
-    </repository>
-  </repositories>
+  <!--<plugin>
+    <groupId>fr.inria.gforge.spoon</groupId>
+    <artifactId>spoon-maven-plugin</artifactId>
+    <version>2.1</version>
+    <executions>
+      <execution>
+        <phase>generate-sources</phase>
+        <goals>
+          <goal>generate</goal>
+        </goals>
+      </execution>
+    </executions>
+    <configuration>
+      <processors>
+        <processor>fr.inria.gforge.spoon.processors.CatchProcessor</processor>
+      </processors>
+    </configuration>
+    <dependencies>
+      <dependency>
+        <groupId>fr.inria.gforge.spoon</groupId>
+        <artifactId>spoon-core</artifactId>
+        <version>5.0.1</version>
+      </dependency>
+    </dependencies>
+  </plugin>-->
+
 
 </project>
