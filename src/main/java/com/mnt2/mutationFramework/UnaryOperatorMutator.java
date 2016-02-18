@@ -1,20 +1,26 @@
 package com.mnt2.mutationFramework;
 
-import com.sun.xml.internal.stream.buffer.AbstractProcessor;
+import spoon.processing.AbstractProcessor;
+import spoon.reflect.code.CtUnaryOperator;
+import spoon.reflect.code.UnaryOperatorKind;
 import spoon.reflect.declaration.CtElement;
 
 /**
- * Created by user on 12/02/16.
+ * Created by Fabien VICENTE on 12/02/16.
  */
 public class UnaryOperatorMutator extends AbstractProcessor<CtElement> {
     @Override
     public boolean isToBeProcessed(CtElement candidate){
-        return true;
+        return candidate instanceof CtUnaryOperator;
     }
 
 
-    @Override
-    public void process(CtElement candidate){
 
+    public void process(CtElement candidate){
+        if(!isToBeProcessed(candidate)){
+            return;
+        }
+        CtUnaryOperator op = (CtUnaryOperator) candidate;
+        op.setKind(UnaryOperatorKind.POSTDEC);
     }
 }
