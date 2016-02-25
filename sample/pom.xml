@@ -40,7 +40,7 @@
         </executions>
         <configuration>
           <processors>
-            <processor>com.mnt2.mutationFramework.UnaryOperatorMutator</processor>
+            <processor>${param_processor}</processor>
           </processors>
         </configuration>
         <dependencies>
