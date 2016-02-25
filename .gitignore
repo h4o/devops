@@ -18,5 +18,5 @@ hs_err_pid*
 # Maven
 target/
 
-#fichier temp
+# Temporary files
 *~
