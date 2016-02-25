@@ -25,4 +25,15 @@ public class TestClassTest {
     public void testDecrement() throws Exception {
         assertEquals(2,testClass.decrement(3));
     }
+
+    @Test
+    public void testTestOperateursLogique() throws Exception {
+        assertTrue(testClass.testOperateursLogique(100,10,10));
+        assertFalse(testClass.testOperateursLogique(50,10,100));
+    }
+
+    @Test
+    public void testTestAutres() throws Exception {
+        assertEquals(10,testClass.testAutres(10,5));
+    }
 }
