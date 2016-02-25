@@ -1,15 +1,13 @@
 package com.mnt2.xmlAnalyzer;
 
 import java.util.*;
-
-import com.sun.org.apache.xpath.internal.SourceTreeManager;
 import org.xml.sax.*;
 import org.xml.sax.helpers.*;
 
 /**
  * Classe utilisée pour gérer les évènements émis par SAX lors du traitement de fichiers XML
  */
-class TestSAX2Handler extends DefaultHandler
+class XMLHandler extends DefaultHandler
 {
     private String tagCourant = "";
 
@@ -19,7 +17,13 @@ class TestSAX2Handler extends DefaultHandler
     public void startElement(String nameSpace, String localName,
                              String qName, Attributes attr) throws SAXException  {
         tagCourant = localName;
-        System.out.println("debut tag : " + localName);
+        if (tagCourant.equals("testcase")) {
+            System.out.println("{ " +
+                    "\n\tTag : " + localName +
+                    "\n\tclassname : "+attr.getValue("classname")+
+                    "\n\tname : " + attr.getValue("name") + "\n}");
+
+        }
     }
 
     /**
@@ -28,21 +32,24 @@ class TestSAX2Handler extends DefaultHandler
     public void endElement(String nameSpace, String localName,
                            String qName) throws SAXException {
         tagCourant = "";
-        System.out.println("Fin tag " + localName);
+        if (tagCourant.equals("testcase") ){
+            System.out.println("/Tag : " + localName);
+        }
+
     }
 
     /**
      * Actions à réaliser au début du document.
      */
     public void startDocument() {
-        System.out.println("Debut du document");
+        System.out.println("Start Document");
     }
 
     /**
      * Actions à réaliser lors de la fin du document XML.
      */
     public void endDocument() {
-        System.out.println("Fin du document");
+        System.out.println("End of Document");
     }
 
     /**
@@ -54,8 +61,7 @@ class TestSAX2Handler extends DefaultHandler
 
         if (!tagCourant.equals("")) {
             if(!Character.isISOControl(caracteres[debut])) {
-                System.out.println("   Element " + tagCourant +",
-                        valeur = *" + donnees + "*");
+                System.out.println("   Element " + tagCourant +", valeur = *" + donnees + "*");
             }
         }
     }
