@@ -27,6 +27,7 @@ class XMLHandler extends DefaultHandler
                              String qName, Attributes attr) throws SAXException  {
         tagCourant = localName;
         if (tagCourant.equals("testcase")) {
+            fail = false;
             testName = "<td>"+numMutants+"</td><td>"+attr.getValue("classname")+"</td><td>"+attr.getValue("name")+"</td>";
         }
         if (tagCourant.equals("failure")) {
