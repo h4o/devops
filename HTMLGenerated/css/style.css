@@ -6,3 +6,18 @@ body {
   margin-bottom: 19px;
 }
 
+.echec_txt {
+  color:darkred;
+  font-weight: bold;
+}
+.chart {
+  width:100%;
+  height:400px;
+}
+
+#mosseraptor {
+  position: fixed;
+  right: -10;
+  bottom: -10;
+  background: url(./images/mosseraptor.jpg) 0 0;
+}

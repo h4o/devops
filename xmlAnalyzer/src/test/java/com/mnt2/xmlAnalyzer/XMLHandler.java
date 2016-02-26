@@ -1,16 +1,25 @@
 package com.mnt2.xmlAnalyzer;
 
-import java.util.*;
-import org.xml.sax.*;
-import org.xml.sax.helpers.*;
+import org.apache.commons.io.FileUtils;
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
+
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Classe utilisée pour gérer les évènements émis par SAX lors du traitement de fichiers XML
  */
 class XMLHandler extends DefaultHandler
 {
+    private static final String HTML_PATH_INIT = System.getProperty("user.dir")+"/HTMLGenerated/index.html";
+    private static final String HTML_PATH_NEW = System.getProperty("user.dir")+"/HTMLGenerated/index_gen.html";
     private String tagCourant = "";
-
+    private String content = "";
+    private int numMutants = 0;
+    private boolean fail = false;
+    private String testName = "";
     /**
      * Actions à réaliser lors de la détection d'un nouvel élément.
      */
@@ -18,11 +27,14 @@ class XMLHandler extends DefaultHandler
                              String qName, Attributes attr) throws SAXException  {
         tagCourant = localName;
         if (tagCourant.equals("testcase")) {
-            System.out.println("{ " +
-                    "\n\tTag : " + localName +
-                    "\n\tclassname : "+attr.getValue("classname")+
-                    "\n\tname : " + attr.getValue("name") + "\n}");
-
+            testName = "<td>"+numMutants+"</td><td>"+attr.getValue("classname")+"</td><td>"+attr.getValue("name")+"</td>";
+        }
+        if (tagCourant.equals("failure")) {
+            if (!fail) {
+                fail = true;
+                NbMutants.incFailedMutants(numMutants);
+            }
+            content += "<tr class=\"danger\"><td class=\"echec_txt\">Echec</td>"+testName+"</tr>";
         }
     }
 
@@ -31,10 +43,14 @@ class XMLHandler extends DefaultHandler
      */
     public void endElement(String nameSpace, String localName,
                            String qName) throws SAXException {
-        tagCourant = "";
-        if (tagCourant.equals("testcase") ){
-            System.out.println("/Tag : " + localName);
+        if (tagCourant.equals("failure") ){
         }
+        if (tagCourant.equals("testcase") ){
+            if(!fail) {
+                content+="<tr class=\"success\"><td>Réussit</td>"+testName+"</tr>";
+            }
+        }
+        tagCourant = "";
 
     }
 
@@ -42,6 +58,9 @@ class XMLHandler extends DefaultHandler
      * Actions à réaliser au début du document.
      */
     public void startDocument() {
+        numMutants = NbMutants.incMutants();
+        content = "<h2 class=\"page-header\">Mutant #"+numMutants+"</h2>";
+        content += "<table class=\"table table-striped\"><thead><tr><th>Statut</th><th>#Mutant</th><th>Classe de Test</th><th>Test</th></tr></thead><tbody>";
         System.out.println("Start Document");
     }
 
@@ -49,7 +68,27 @@ class XMLHandler extends DefaultHandler
      * Actions à réaliser lors de la fin du document XML.
      */
     public void endDocument() {
-        System.out.println("End of Document");
+        // Get template file
+        content+="</tbody></table>";
+        File htmlTemplateFile = new File(HTML_PATH_INIT);
+        String htmlString = null;
+        try {
+            htmlString = FileUtils.readFileToString(htmlTemplateFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Replace
+        htmlString = htmlString.replace("$TABLEBODY", content+"$TABLEBODY");
+        File newHtmlFile = new File(HTML_PATH_NEW);
+
+        // Rewrite new html
+        try {
+            FileUtils.writeStringToFile(newHtmlFile, htmlString);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println(content);
     }
 
     /**
@@ -59,9 +98,9 @@ class XMLHandler extends DefaultHandler
                            int longueur) throws SAXException {
         String donnees = new String(caracteres, debut, longueur);
 
-        if (!tagCourant.equals("")) {
+        if (tagCourant.equals("failure")) {
             if(!Character.isISOControl(caracteres[debut])) {
-                System.out.println("   Element " + tagCourant +", valeur = *" + donnees + "*");
+                //content+= donnees;
             }
         }
     }

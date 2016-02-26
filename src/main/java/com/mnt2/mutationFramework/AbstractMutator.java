@@ -1,8 +1,6 @@
 package com.mnt2.mutationFramework;
 
 import spoon.processing.AbstractProcessor;
-import spoon.reflect.code.CtUnaryOperator;
-import spoon.reflect.code.UnaryOperatorKind;
 import spoon.reflect.cu.SourcePosition;
 import spoon.reflect.declaration.CtElement;
 
