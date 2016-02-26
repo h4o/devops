@@ -13,3 +13,6 @@ do
 
 done
 
+mvn clean compile -f "xmlAnalyzer/pom.xml" assembly:single
+mv xmlAnalyzer/target/mnt2_MutationFramework-1.0-SNAPSHOT-jar-with-dependencies.jar .
+java -jar mnt2_MutationFramework-1.0-SNAPSHOT-jar-with-dependencies.jar
