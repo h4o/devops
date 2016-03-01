@@ -7,35 +7,37 @@ import org.jdom.input.SAXBuilder;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
 
 public class XMLAnalyzer2 {
     public static void main(String[] args) {
-
+        System.out.println("Running Parser");
         SAXBuilder builder = new SAXBuilder();
-        File xmlFile = new File("c:\\file.xml");
+        String DIR_PATH = System.getProperty("user.dir");
 
         try {
-
-            Document document = (Document) builder.build(xmlFile);
+            File xmlFile = new File(DIR_PATH + "/sample/target/surefire-reports/TEST-com.mnt2.sample.TestClassTest.xml");
+            Document document = builder.build(xmlFile);
             Element rootNode = document.getRootElement();
-            List list = rootNode.getChildren("staff");
-
-            for (int i = 0; i < list.size(); i++) {
-
-                Element node = (Element) list.get(i);
-
-                System.out.println("First Name : " + node.getChildText("firstname"));
-                System.out.println("Last Name : " + node.getChildText("lastname"));
-                System.out.println("Nick Name : " + node.getChildText("nickname"));
-                System.out.println("Salary : " + node.getChildText("salary"));
-
+            List tests = rootNode.getChildren("testcase");
+            Iterator i = tests.iterator();
+            while(i.hasNext())
+            {
+                //On recrée l'Element courant à chaque tour de boucle afin de
+                //pouvoir utiliser les méthodes propres aux Element comme :
+                //sélectionner un nœud fils, modifier du texte, etc...
+                Element courant = (Element)i.next();
+                //On affiche le nom de l’élément courant
+                System.out.println("Test "+i.toString());
+                System.out.println(courant.getChild("failure").getText());
             }
-
         } catch (IOException io) {
             System.out.println(io.getMessage());
         } catch (JDOMException jdomex) {
             System.out.println(jdomex.getMessage());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }
 }
