@@ -10,13 +10,10 @@ import java.io.IOException;
 public class XMLAnalyzer {
 
     public static void main(String[] args) {
-        String HTML_PATH_NEW = System.getProperty("user.dir")+"/HTMLGenerated/index_gen.html";
 
         System.out.println("Running Parser");
         String DIR_PATH = System.getProperty("user.dir");
         try {
-            /*Class c = Class.forName("org.apache.xerces.parsers.SAXParser");
-            XMLReader reader = (XMLReader) c.newInstance();*/
             SAXParserFactory factory = SAXParserFactory.newInstance();
             factory.setNamespaceAware(true);
             SAXParser parser = factory.newSAXParser();
@@ -27,6 +24,8 @@ public class XMLAnalyzer {
         } catch (Exception e) {
             System.out.println(e);
         }
+        String HTML_PATH_NEW = System.getProperty("user.dir")+"/HTMLGenerated/index_gen.html";
+
 
 
         File htmlTemplateFile = new File(HTML_PATH_NEW);

@@ -20,6 +20,7 @@ public final class NbMutants {
 
     public static void incFailedMutants(int id) {
         failed.add(new Integer(id));
+        
     }
 
     public static int nbFailed () {
