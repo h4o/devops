@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<modifiers>
+	<modifier>
+		<before>
+			<value>GT</value>
+			<value>GE</value>
+		</before>
+		<after>
+			<value>LT</value>
+			<value>LE</value>
+		</after>
+	</modifier>
+	<modifier>
+		<before>
+			<value>LT</value>
+		</before>
+		<after>
+			<value>GT</value>
+		</after>
+	</modifier>
+</modifiers>

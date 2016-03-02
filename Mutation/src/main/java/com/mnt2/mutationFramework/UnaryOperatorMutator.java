@@ -17,6 +17,7 @@ public class UnaryOperatorMutator extends AbstractMutator {
     @Override
     public void init(){
         random = new Random();
+        super.init();
     }
 
 

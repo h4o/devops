@@ -20,3 +20,8 @@ target/
 
 # Temporary files
 *~
+
+# Generated report
+HTMLGenerated/index_gen.html
+
+
