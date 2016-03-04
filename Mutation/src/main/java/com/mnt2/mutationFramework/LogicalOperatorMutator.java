@@ -33,7 +33,10 @@ public class LogicalOperatorMutator extends AbstractMutator{
         if(modifiers.containsKey(op.getKind().toString())){
            List<String> kinds = modifiers.get(op.getKind().toString());
            kinds.remove(op.getKind());
-            op.setKind(BinaryOperatorKind.valueOf(kinds.get(random.nextInt(kinds.size()))));
+           BinaryOperatorKind kind;
+            kind = BinaryOperatorKind.valueOf(kinds.get(random.nextInt(kinds.size())));
+           addModification(op.getKind().name(),kind.name(),op.getPosition());
+           op.setKind(kind);
         }
     }
 
