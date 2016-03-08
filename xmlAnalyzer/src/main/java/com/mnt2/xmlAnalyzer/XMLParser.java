@@ -8,10 +8,11 @@ import org.jdom2.input.SAXBuilder;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class XMLParser implements IParse {
+public class XMLParser implements IParseTest {
     private int nbSuccess = 0;
     private int nbMutant= 0;
 
@@ -24,8 +25,6 @@ public class XMLParser implements IParse {
      * @param filePath chemin du fichier du rapport XML à Parse
      */
     public List<TestReport> parse(String filePath) {
-        List<TestReport> reports = new List<>();
-        String localHTML = new String();
         File inputFile = new File(filePath);
         SAXBuilder saxBuilder = new SAXBuilder();
         Document document = null;
@@ -38,6 +37,7 @@ public class XMLParser implements IParse {
         }
         Element classElement = document.getRootElement();
         List<Element> testcases = classElement.getChildren("testcase");
+        List<TestReport> testList = new ArrayList<>();
         System.out.println("-----------");
         for (int temp = 0; temp < testcases.size(); temp++) {
             Element testcase = testcases.get(temp);
@@ -49,24 +49,15 @@ public class XMLParser implements IParse {
             Attribute attributeName =  testcase.getAttribute("name");
             System.out.println("testname : "
                     + attributeName.getValue() );
+            Element failures = testcase.getChild("failure");
+            String content = new String();
+            if (failures != null) {
+                content = failures.getContent().toString();
+                testList.add(new TestReport(TestStatusEnum.FAILED,attribute.getValue(), attributeName.getValue(), content));
+            }
+            testList.add(new TestReport(TestStatusEnum.SUCCEED,attribute.getValue(), attributeName.getValue(), content));
         }
-    }
-
-    /**
-     * parse tout les fichiers associés aux strings contenues par la list passée en paramètre
-     * @param list renvoie un HashMap associant un mutant à une list de rapport de tests
-     */
-    public HashMap<Integer, List<TestReport>> parse(List<String> list) {
-
         return null;
     }
 
-
-    public void newRowHTML(String in, String classe, String statut, String classeTest, String testName) {
-        in+="<tr class=\""+classe+"\"><td class=\""+statut+"</td><td>"+classeTest+"</td><td>"+testName+"</td></tr>";
-    }
-
-    public void newMutantHTML(String in, ) {
-        in+="<h2 class=\"page-header"></h2><table class="table table-striped"><thead><tr><th>Statut</th><th>#Mutant</th><th>Classe de Test</th><th>Test</th></tr></thead><tbody>
-    }
 }

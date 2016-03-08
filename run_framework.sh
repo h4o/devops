@@ -2,7 +2,7 @@
 
 PATH_POM="sample/pom.xml"
 
-PROC_NAMES=( 'UnaryOperatorMutator' 'LogicalOperatorMutator' )
+PROC_NAMES=( 'EmptyProcessor' 'UnaryOperatorMutator' 'LogicalOperatorMutator'  )
 
 for NAME in ${PROC_NAMES[@]}
 do

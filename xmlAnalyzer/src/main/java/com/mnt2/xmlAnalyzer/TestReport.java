@@ -4,13 +4,13 @@ package com.mnt2.xmlAnalyzer;
  * Created by cazala on 04/03/16.
  */
 public class TestReport {
-    TestStatusEnum status;
-    String className;
-    String testName;
-    String detail;
+    private TestStatusEnum status;
+    private String className;
+    private String testName;
+    private String detail;
 
     public TestReport(String className, String testName) {
-        TestReport(TestStatusEnum.SUCCEED, className, testName, "");
+        new TestReport(TestStatusEnum.SUCCEED, className, testName, "");
     }
 
     public TestReport(TestStatusEnum status, String className, String testName, String detail) {
@@ -18,6 +18,22 @@ public class TestReport {
         this.className = className;
         this.status = status;
         this.detail = detail;
+    }
+
+    public TestStatusEnum getStatus() {
+        return status;
+    }
+
+    public String getClassName() {
+        return className;
+    }
+
+    public String getTestName() {
+        return testName;
+    }
+
+    public String getDetail() {
+        return detail;
     }
 
     @Override
