@@ -10,7 +10,7 @@ import java.util.Set;
 /**
  * Created by cazala on 08/03/16.
  */
-public class EmptyProcessor extends AbstractProcessor<CtElement> {
+public class EmptyMutator extends AbstractProcessor<CtElement> {
 
 
     @Override

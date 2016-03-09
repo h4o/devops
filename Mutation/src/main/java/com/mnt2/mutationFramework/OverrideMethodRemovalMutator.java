@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * Created by user on 08/03/16.
  */
-public class OverrideMethodRemovalProcessor extends AbstractAnnotationProcessor<Override, CtMethod> {
+public class OverrideMethodRemovalMutator extends AbstractAnnotationProcessor<Override, CtMethod> {
 
     @Override
     public void process(Override override, CtMethod ctMethod) {
