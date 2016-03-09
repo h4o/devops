@@ -43,21 +43,22 @@ public class XMLParser implements IParseTest {
             Element testcase = testcases.get(temp);
             System.out.println("\nCurrent testcase :"
                     + testcase.getName());
-            Attribute attribute =  testcase.getAttribute("classname");
+            Attribute attribute = testcase.getAttribute("classname");
             System.out.println("Classname : "
-                    + attribute.getValue() );
-            Attribute attributeName =  testcase.getAttribute("name");
+                    + attribute.getValue());
+            Attribute attributeName = testcase.getAttribute("name");
             System.out.println("testname : "
-                    + attributeName.getValue() );
+                    + attributeName.getValue());
             Element failures = testcase.getChild("failure");
             String content = new String();
             if (failures != null) {
                 content = failures.getContent().toString();
-                testList.add(new TestReport(TestStatusEnum.FAILED,attribute.getValue(), attributeName.getValue(), content));
+                testList.add(new TestReport(TestStatusEnum.FAILED, attribute.getValue(), attributeName.getValue(), content));
+            } else {
+                testList.add(new TestReport(TestStatusEnum.SUCCEED, attribute.getValue(), attributeName.getValue(), content));
             }
-            testList.add(new TestReport(TestStatusEnum.SUCCEED,attribute.getValue(), attributeName.getValue(), content));
         }
-        return null;
+        return testList;
     }
 
 }

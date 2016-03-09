@@ -8,4 +8,5 @@ import java.util.List;
 public interface IGenerator {
 
     void generateMutant (List<TestReport> testList);
+    void generateReport();
 }
