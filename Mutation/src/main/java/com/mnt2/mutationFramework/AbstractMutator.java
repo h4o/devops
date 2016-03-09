@@ -16,6 +16,7 @@ import org.jdom.input.SAXBuilder;
  * Created by Fabien VICENTE on 25/02/16.
  */
 public abstract class AbstractMutator  extends AbstractProcessor<CtElement> {
+
     private String report;
     protected Map<String,List<String>> modifiers;
     protected int chance = 0;
@@ -65,6 +66,7 @@ public abstract class AbstractMutator  extends AbstractProcessor<CtElement> {
             file =  new File(".tmp") ;
              oos =  new ObjectOutputStream(new FileOutputStream(file)) ;
             oos.writeObject(changedHashCode) ;
+
 
         } catch (IOException io){
 
