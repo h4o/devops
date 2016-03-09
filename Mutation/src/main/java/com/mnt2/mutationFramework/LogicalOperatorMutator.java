@@ -22,6 +22,9 @@ public class LogicalOperatorMutator extends AbstractMutator{
 
     @Override
     public boolean isToBeProcessed(CtElement candidate){
+        if(!super.isToBeProcessed(candidate))
+            return false;
+
         return candidate instanceof CtBinaryOperator;
     }
 

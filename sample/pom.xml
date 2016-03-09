@@ -40,7 +40,8 @@
         </executions>
         <configuration>
           <processors>
-            <processor>${param_processor}</processor>
+            <processor>${param_processor}
+            </processor>
           </processors>
         </configuration>
         <dependencies>

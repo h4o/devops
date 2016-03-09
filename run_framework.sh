@@ -9,7 +9,7 @@ do
 
 	PROC_PATH="com.mnt2.mutationFramework."${NAME}
 
-	mvn test -f ${PATH_POM} -Dparam_processor=${PROC_PATH}
+	mvn test -f ${PATH_POM} -e -Dparam_processor=${PROC_PATH}
 
 done
 

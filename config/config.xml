@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<modifiers>
+<modifiers type="oneshot" value="20">
 	<modifier>
 		<before>
 			<value>GT</value>

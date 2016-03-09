@@ -32,19 +32,20 @@ public class UnaryOperatorMutator extends AbstractMutator {
         if(!isToBeProcessed(candidate)){
             return;
         }
+       // candidate.getParent(CtClass.class).getSimpleName().equals("LE NOM DE MA CLASSE QUE JE VEUX MUTER");
         CtUnaryOperator op = (CtUnaryOperator) candidate;
-        List<UnaryOperatorKind> operators = new ArrayList<>();
-        operators.add(UnaryOperatorKind.POSTDEC);
-        operators.add(UnaryOperatorKind.PREDEC);
-        operators.add(UnaryOperatorKind.POSTINC);
-        operators.add(UnaryOperatorKind.PREINC);
-        operators.remove(op.getKind());
-        UnaryOperatorKind kind = operators.get(random.nextInt(operators.size()));
-        addModification(op.getKind().name(),kind.name(),op.getPosition());
-        op.setKind(kind);
-
-
+        if(modifiers.containsKey(op.getKind().toString())){
+            List<String> kinds = modifiers.get(op.getKind().toString());
+            kinds.remove(op.getKind());
+            UnaryOperatorKind kind;
+            kind = UnaryOperatorKind.valueOf(kinds.get(random.nextInt(kinds.size())));
+            addModification(op.getKind().name(),kind.name(),op.getPosition());
+            op.setKind(kind);
+        }
     }
+
+
+
 
 
 }
