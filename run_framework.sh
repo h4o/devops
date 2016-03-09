@@ -2,7 +2,7 @@
 
 PATH_POM="sample/pom.xml"
 
-PROC_NAMES=( 'EmptyProcessor' 'UnaryOperatorMutator' 'LogicalOperatorMutator'  )
+PROC_NAMES=( 'EmptyProcessor' 'UnaryOperatorMutator' 'LogicalOperatorMutator' 'OverrideMethodRemovalProcessor' )
 declare -i cpt=0
 for NAME in ${PROC_NAMES[@]}
 do

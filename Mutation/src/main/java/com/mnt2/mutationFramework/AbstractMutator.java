@@ -17,8 +17,10 @@ import org.jdom.input.SAXBuilder;
  * Created by Fabien VICENTE on 25/02/16.
  */
 public abstract class AbstractMutator  extends AbstractProcessor<CtElement> {
+
     private String report;
     protected Map<String,List<String>> modifiers;
+
     @Override
     public  void init(){
         modifiers = new HashMap<>();
@@ -28,7 +30,6 @@ public abstract class AbstractMutator  extends AbstractProcessor<CtElement> {
         report = "<processor name=\""+this.getClass().getName()+"\"";
         super.init();
     }
-
 
     private void parseConfig(){
         SAXBuilder builder = new SAXBuilder();
