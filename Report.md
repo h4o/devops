@@ -88,7 +88,10 @@ Ce projet aura été très instructif, nous enseignant qu'il vaut mieux partir a
 (plugin Maven plutôt qu'un script Bash).
 
 Notre IHM est fonctionnelle apportant un réel atout à ce projet. Cependant nous n'avons pas pu y intégrer tous les fichiers
-de configuration déjà créés que l'on voulait par manque de temps (description de la mutation, etc.).
+de configuration déjà créés que l'on voulait par manque de temps (description de la mutation, etc.). Nous nous étions déjà
+préoccupé des fichiers nous permettant de générer les difs et ça marchait parfaitement (ligne modifié avec mutation appliqué
+décrite (LT => GT (lower than to greater than) par exemple). Avec une demi journée de plus nous aurions eu le temps de
+générer l'IHM l'affichant au format "utilisateur" plutôt que le XML que nous générions actuellement.
 
 Notre projet génère actuellement 79 mutants ce qui est un nombre considérable et nous vous conseillons d'aller vous regarder
 un épisode d'une série pendant ce temps. Notre projet ne passe actuellement pas à l'échelle ce qui est regrettable pour les
