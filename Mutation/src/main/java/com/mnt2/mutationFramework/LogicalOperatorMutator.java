@@ -35,6 +35,11 @@ public class LogicalOperatorMutator extends AbstractProcessor<CtBinaryOperator> 
 
 
     @Override
+    public void processingDone(){
+        reporter.saveReport();
+    }
+
+    @Override
     public void process(CtBinaryOperator op) {
 
         List<String> kinds = new ArrayList<>(reader.getModifiers(op.getKind().toString()));
