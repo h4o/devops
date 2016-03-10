@@ -23,6 +23,7 @@ target/
 .tmp
 # Generated report
 HTMLGenerated/index_gen.html
-
 ./config/config.xml
+config/config.xml
+sample/output/*
 
