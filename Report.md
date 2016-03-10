@@ -23,9 +23,10 @@ réfléchir à certains points tels que l'ergonomie et les données exposées.
 
 Pour obtenir une Interface Homme Machine (IHM) fonctionnelle et tout de même plaisante nous avons utilisé le framework
 Bootstrap pour structurer notre page. Ce framework nous a ainsi permis de gagner concernant le positionnement des objets
-puisqu'il propose déjà une grille de 12 colonnes. De plus certaines nous aurons été très utiles d'un point de vue **ergonomie**
+puisqu'il propose déjà une grille de 12 colonnes. Combiné aux graphes de HighChart, cela nous donne le rendu que nous voulions.
+De plus certaines fonctionnalités de Bootstrap nous aurons été très utiles d'un point de vue **ergonomie**
 
-#### Les fenêtres modales
+#### I.4.A Les fenêtres modales
 
 Lorsque l'on clique sur une des lignes du tableau récapitulatif des mutants, une fenêtre modale apparaît
 pour nous donner plus d'informations sur le mutant en question. 
@@ -34,3 +35,9 @@ pour nous donner plus d'informations sur le mutant en question.
 
 Ainsi tout se déroule dans une seule et même fenêtre sans pour autant rendre la navigation désagréable. La navigation entre
 les mutants est facilitée.
+
+#### I.4.B HighChart
+
+Concernant les graphes choisis, nous avons optés pour un graphe "pie" (camembert) pour avoir un aperçu immediat du nombre
+de mutants tués et du nombre de mutants ne l'ayant pas été.
+

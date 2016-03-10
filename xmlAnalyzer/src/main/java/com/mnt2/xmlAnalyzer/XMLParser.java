@@ -9,6 +9,7 @@ import org.jdom2.input.SAXBuilder;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -21,9 +22,25 @@ public class XMLParser implements IParseTest {
     }
 
     /**
+     * Parse un tout les fichiers du dossier
+     * @param folderPath chemin du dossier des rapport XML à Parse
+     */
+    @Override
+    public List<TestReport> parseFolderXML(String folderPath) {
+        File f = new File(folderPath);
+        ArrayList<String> names = new ArrayList<>(Arrays.asList(f.list()));
+        List<TestReport> result = new ArrayList<>();
+        for (String XMLFile : names) {
+            result.addAll(parse(folderPath+"/"+XMLFile));
+        }
+        return result;
+    }
+
+    /**
      * Parse un fichier
      * @param filePath chemin du fichier du rapport XML à Parse
      */
+    @Override
     public List<TestReport> parse(String filePath) {
         File inputFile = new File(filePath);
         SAXBuilder saxBuilder = new SAXBuilder();
@@ -60,5 +77,6 @@ public class XMLParser implements IParseTest {
         }
         return testList;
     }
+
 
 }

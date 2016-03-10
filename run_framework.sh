@@ -1,5 +1,5 @@
 #!/bin/bash
-
+echo "[INFO] Running Tortues Ninja Framework"
 PATH_POM="sample/pom.xml"
 
 PROC_NAMES=( 'EmptyMutator' 'UnaryOperatorMutator' 'LogicalOperatorMutator' 'OverrideMethodRemovalMutator' )
@@ -14,7 +14,8 @@ do
 	PROC_PATH="com.mnt2.mutationFramework."${NAME}
 	mvn test -f ${PATH_POM} -e -Dparam_processor=${PROC_PATH}
 	# mv ./sample/target/mutationframework/* ./sample/output/processor/MUT-$((cpt)).xml
-    mv ./sample/target/surefire-reports/TEST-* ./sample/output/tests/TEST-$((cpt)).xml
+	mkdir ./sample/output/tests/mutant-$((cpt))
+    mv ./sample/target/surefire-reports/TEST* ./sample/output/tests/mutant-$((cpt))/
 
     cpt=$((cpt + 1))
 done
