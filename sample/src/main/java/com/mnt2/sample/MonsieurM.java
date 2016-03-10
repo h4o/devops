@@ -5,24 +5,24 @@ package com.mnt2.sample;
  */
 public class MonsieurM extends Raptor implements Talking {
     @Override
-    protected void beEvil() {
-        System.out.println("Building a wall...");
+    protected String beEvil() {
+        return "Building a wall...";
     }
 
     @Override
-    protected void beEvil(int percentage) {
-        System.out.println("Percentage of desperation among students : "+percentage+"%");
+    protected String beEvil(int percentage) {
+        return "Percentage of desperation among students : "+percentage+"%";
     }
 
     @Override
-    protected void beEvil(int nbKilled, int nbAlive) {
-        System.out.println("Number of students killed : "+nbKilled);
-        System.out.println("Number of students alive : "+nbAlive);
-        System.out.println("Efficiency of the wall : "+(nbKilled/(nbKilled+nbAlive))*100);
+    protected String beEvil(int nbKilled, int nbAlive) {
+        return "Number of students killed : "+nbKilled+" ; " +
+                "Number of students alive : "+nbAlive+" ; " +
+                "Efficiency of the wall : "+(nbKilled/(nbKilled+nbAlive))*100+"%";
     }
 
     @Override
-    public void talk() {
-        System.out.println("Êtes-vous tolérants face à la critique ?");
+    public String talk() {
+        return "Etes vous tolerants face a la critique ?";
     }
 }
