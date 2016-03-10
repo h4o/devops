@@ -86,7 +86,7 @@ coûteux en temps. Ce n'est donc pas qu'une faiblesse mais aussi une force de l'
  
 Ce projet aura été très instructif, nous enseignant qu'il vaut mieux partir avec de la **dette technique** quelques fois 
 (plugin Maven plutôt qu'un script Bash).
-
+ 
 Notre IHM est fonctionnelle apportant un réel atout à ce projet. Cependant nous n'avons pas pu y intégrer tous les fichiers
 de configuration déjà créés que l'on voulait par manque de temps (description de la mutation, etc.). Nous nous étions déjà
 préoccupé des fichiers nous permettant de générer les difs et ça marchait parfaitement (ligne modifié avec mutation appliqué
