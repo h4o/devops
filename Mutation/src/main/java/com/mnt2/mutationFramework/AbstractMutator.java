@@ -19,7 +19,7 @@ public abstract class AbstractMutator  extends AbstractProcessor<CtElement> {
     private String report;
     protected Map<String,List<String>> modifiers;
     protected int chance = 0;
-    private  Selector selector;
+    private SelectorType selectorType;
     protected Random random;
     private int hashCodeToChange = -1;
     private List<Integer> changedHashCode;
@@ -37,9 +37,9 @@ public abstract class AbstractMutator  extends AbstractProcessor<CtElement> {
     }
     @Override
     public boolean isToBeProcessed(CtElement element){
-        if(selector == Selector.RANDOM){
+        if(selectorType == SelectorType.RANDOM){
             return random.nextInt(100) > chance;
-        } else if(selector == Selector.ONESHOT){
+        } else if(selectorType == SelectorType.ONESHOT){
             CtClass classToChange = element.getParent(CtClass.class);
             if(classToChange != null){
                 System.out.println("class hashcode:"+classToChange.hashCode());
@@ -103,46 +103,7 @@ public abstract class AbstractMutator  extends AbstractProcessor<CtElement> {
     }
 
     private void parseConfig(){
-        SAXBuilder builder = new SAXBuilder();
-        try {
-            File f = new File("./config/config.xml");
-            Document document = builder.build(f);
-            Element rootNode = document.getRootElement();
 
-            String type = rootNode.getAttribute("type").getValue();
-            if(type.equalsIgnoreCase("random")) {
-                chance = Integer.valueOf(rootNode.getAttribute("value").getValue());
-                selector = Selector.RANDOM;
-            } else{
-                selector = Selector.ONESHOT;
-                readHashCodes();
-            }
-            List modifierList = rootNode.getChildren("modifier");
-            Iterator i = modifierList.iterator();
-            while(i.hasNext()){
-
-                Element current = (Element)i.next();
-                Element before = current.getChild("before");
-                Element after = current.getChild("after");
-                List<String> afterValues = new ArrayList<>();
-
-                Iterator values = after.getChildren().iterator();
-                while(values.hasNext()){
-                    afterValues.add(((Element)values.next()).getText());
-                }
-                values = before.getChildren().iterator();
-                while(values.hasNext()){
-                    modifiers.put(((Element)values.next()).getText(),afterValues);
-                }
-                System.out.println(modifiers);
-            }
-
-
-        } catch (IOException io){
-            io.printStackTrace();
-        } catch (JDOMException jde){
-            jde.printStackTrace();
-        }
     }
 
     @Override

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<modifiers type="${type}" value="${value}" output="${dir}">
+	${MODIFIERS}
+	<!--<modifier>
+		<before>
+			<value>GT</value>
+			<value>GE</value>
+		</before>
+		<after>
+			<value>LT</value>
+			<value>LE</value>
+		</after>
+	</modifier>-->
+</modifiers>
