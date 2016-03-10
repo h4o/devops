@@ -2,7 +2,7 @@
 echo "[INFO] Running Tortues Ninja Framework"
 PATH_POM="sample/pom.xml"
 
-PROC_NAMES=( 'ANDMutator' )
+PROC_NAMES=( 'EmptyMutator' 'ABSMutator' 'CRTMutator' 'LogicalOperatorMutator' 'OverrideMethodRemovalMutator' 'UnaryOperatorMutator' 'ANDMutator' )
 declare -i cpt=0
 echo "[INFO] Cleaning sample/output directory"
 rm -r ./sample/output/processor/*
