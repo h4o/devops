@@ -27,4 +27,11 @@ public class TestExtendedTestClass {
     public void testDumb() throws Exception {
         assertEquals(42, etc.dumb(42));
     }
+
+    /**
+     * Created by user on 10/03/16.
+     */
+    public static class TestClassTest {
+
+    }
 }
