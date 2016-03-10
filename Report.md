@@ -25,7 +25,7 @@ Pour obtenir une Interface Homme Machine (IHM) fonctionnelle et tout de même pl
 Bootstrap pour structurer notre page. Ce framework nous a ainsi permis de gagner concernant le positionnement des objets
 puisqu'il propose déjà une grille de 12 colonnes. De plus certaines nous aurons été très utiles d'un point de vue **ergonomie**
 
-##### Les fenêtres modales
+#### Les fenêtres modales
 
 Lorsque l'on clique sur une des lignes du tableau récapitulatif des mutants, une fenêtre modale apparaît
 pour nous donner plus d'informations sur le mutant en question. 
