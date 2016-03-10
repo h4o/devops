@@ -1,1 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><modifiers type="ALWAYS" value="0" output="./sample/target/report/"></modifiers>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><modifiers type="ONESHOT" value="0" output="./sample/target/report/"><modifier>
+<before>
+<value>LT</value>
+<value>GT</value>
+</before>
+<after>
+<value>LE</value>
+</after>
+</modifier></modifiers>
