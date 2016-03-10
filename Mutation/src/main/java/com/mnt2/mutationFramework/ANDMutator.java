@@ -9,12 +9,34 @@ import spoon.reflect.reference.CtTypeReference;
 import spoon.reflect.visitor.filter.TypeFilter;
 import spoon.support.reflect.declaration.CtClassImpl;
 
+import java.util.Random;
 import java.util.Set;
 
 /**
  * Created by user on 10/03/16.
  */
 public class ANDMutator extends AbstractProcessor<CtMethod> {
+
+    private Random random;
+    private ConfigurationReader reader;
+    private Selector selector;
+    private Reporter reporter;
+
+    @Override
+    public void init(){
+        reader = new ConfigurationReader();
+        reader.readConfiguration("./config/config.xml",true);
+        selector = reader.getSelector();
+        random = new Random();
+        reporter = new Reporter(reader.getOutputDir(),this.getClass().getCanonicalName()+".xml");
+        super.init();
+    }
+
+    @Override
+    public boolean isToBeProcessed(CtMethod candidate) {
+        return selector.isToBeProcessed(candidate);
+    }
+
     @Override
     public void process(CtMethod ctMethod) {
 
@@ -42,5 +64,10 @@ public class ANDMutator extends AbstractProcessor<CtMethod> {
 
             }
         }
+    }
+
+    @Override
+    public void processingDone(){
+        reporter.saveReport();
     }
 }
