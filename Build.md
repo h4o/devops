@@ -4,7 +4,7 @@ Détailler comment construire notre framework
 Pour construire notre framework il suffit :
 
 * D'ajouter les sources, le pom.xml et le banc de test de votre projet dans le module **sample**
-* D'ajouter un référence vers notre plugin Maven dans le pom.xml de votre projet comme ceci :
+* D'ajouter une référence vers notre plugin Maven dans le pom.xml de votre projet comme ceci :
 
 >        <plugin>
             <groupId>fr.inria.gforge.spoon</groupId>
