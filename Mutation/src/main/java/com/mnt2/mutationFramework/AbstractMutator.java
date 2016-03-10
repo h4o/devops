@@ -3,6 +3,7 @@ package com.mnt2.mutationFramework;
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.JDOMException;
+import org.jdom.input.SAXBuilder;
 import spoon.processing.AbstractProcessor;
 import spoon.reflect.cu.SourcePosition;
 import spoon.reflect.declaration.CtClass;
@@ -10,8 +11,6 @@ import spoon.reflect.declaration.CtElement;
 
 import java.io.*;
 import java.util.*;
-
-import org.jdom.input.SAXBuilder;
 /**
  * Created by Fabien VICENTE on 25/02/16.
  */

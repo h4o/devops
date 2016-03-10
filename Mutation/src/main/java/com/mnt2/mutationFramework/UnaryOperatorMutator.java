@@ -4,7 +4,6 @@ import spoon.reflect.code.CtUnaryOperator;
 import spoon.reflect.code.UnaryOperatorKind;
 import spoon.reflect.declaration.CtElement;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
