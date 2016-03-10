@@ -2,11 +2,20 @@
 echo "[INFO] Running Tortues Ninja Framework"
 PATH_POM="sample/pom.xml"
 
-PROC_NAMES=( 'EmptyMutator' 'ABSMutator' 'CRTInterfaceMutator' 'CRTSuperclassMutator' 'LogicalOperatorMutator' 'OverrideMethodRemovalMutator' 'UnaryOperatorMutator' 'ANDMutator' )
+PROC_NAMES=('ABSMutator' 'CRTInterfaceMutator' 'CRTSuperclassMutator' 'LogicalOperatorMutator' 'OverrideMethodRemovalMutator' 'UnaryOperatorMutator' 'ANDMutator' )
 declare -i cpt=0
 echo "[INFO] Cleaning sample/output directory"
 rm -r ./sample/output/processor/*
 rm -r ./sample/output/tests/*
+
+
+
+mkdir -p ./sample/output/tests/mutant-$((cpt))
+./template/generateXml.sh n $conf "./sample/target/report/" "$line" > ./config/config.xml
+mvn test -f ${PATH_POM} -e -Dparam_processor="com.mnt2.mutationFramework.EmptyMutator"
+mv ./sample/target/surefire-reports/TEST-* ./sample/output/tests/mutant-$((cpt))/
+
+
 
 for NAME in ${PROC_NAMES[@]}
 do
