@@ -93,7 +93,7 @@ de configuration déjà créés que l'on voulait par manque de temps (descriptio
 Notre projet génère actuellement 79 mutants ce qui est un nombre considérable et nous vous conseillons d'aller vous regarder
 un épisode de série pendant ce temps. Notre projet ne passe actuellement pas à l'échelle ce qui est regrettable pour les
 efforts mis en oeuvre.
-
+ 
 En un mot le défaut de ce projet reste : Bash.
 
 NB : Nous n'avons pas pu parraleliser le projet puisque l'on écrit dans generated-sources avant de compiler. Nous avions trouvé
