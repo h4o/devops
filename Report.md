@@ -78,7 +78,7 @@ Autrement, le site web reste généré statiquement c'est pourquoi l'architectur
 **Les Faiblesses** : les fenêtre modales sont elles aussi générées statiquement. Ce qui signifie que le contenu est en dur
 dans le fichier html. Nous aurions préféré générer le contenu des fenêtres modales dynamiquement (avec des évènements onclick).
 pour réduire la taille du fichier html (il serait plus lisible). La seule différence est la méthode, mais cela aurait même été plus
-couteux en temps. Ce n'est donc une faiblesse mais aussi une force de l'avoir fait comme celà.
+couteux en temps. Ce n'est donc une faiblesse mais aussi une force de l'avoir fait comme cela.
 
 
 
@@ -91,11 +91,11 @@ Notre IHM est fonctionnelle apportant un réel atout à ce projet. Cependant nou
 de configuration déjà créés que l'on voulait par manque de temps (description de la mutation etc.).
 
 Notre projet génère actuellement 79 mutants ce qui est un nombre considérable et nous vous conseillons d'aller vous regarder
-un épisode de série pendant ce temps. Notre projet ne passe actuellement pas à l'échelle ce qui est regrettable pour les
+un épisode d'une série pendant ce temps. Notre projet ne passe actuellement pas à l'échelle ce qui est regrettable pour les
 efforts mis en oeuvre.
  
 En un mot le défaut de ce projet reste : Bash.
 
-NB : Nous n'avons pas pu parraleliser le projet puisque l'on écrit dans generated-sources avant de compiler. Nous avions trouvé
+NB : Nous n'avons pas pu paralléliser le projet puisque l'on écrit dans generated-sources avant de compiler. Nous avions trouvé
 une méthode pour résoudre le problème des compteurs (un compteur pour le processus et un pour les mutants) mais aucun pour ce
 problème.
