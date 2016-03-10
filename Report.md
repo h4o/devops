@@ -83,7 +83,7 @@ couteux en temps. Ce n'est donc une faiblesse mais aussi une force de l'avoir fa
 
 
 ## Conclusion générale
-
+ 
 Ce projet aura été très instructif, nous enseignant qu'il vaut mieux partir avec de la **dette technique** quelques fois 
 (plugin Maven plutot qu'un script Bash).
 
