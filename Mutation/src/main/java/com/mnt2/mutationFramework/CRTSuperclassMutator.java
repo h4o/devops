@@ -29,6 +29,11 @@ public class CRTSuperclassMutator extends AbstractProcessor<CtMethod> {
     }
 
     @Override
+    public boolean isToBeProcessed(CtMethod candidate) {
+        return selector.isToBeProcessed(candidate);
+    }
+
+    @Override
     public void process(CtMethod ctMethod) {
 
         /* Replace the declared type by its superclas */

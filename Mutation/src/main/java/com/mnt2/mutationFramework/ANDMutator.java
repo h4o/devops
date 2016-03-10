@@ -33,6 +33,11 @@ public class ANDMutator extends AbstractProcessor<CtMethod> {
     }
 
     @Override
+    public boolean isToBeProcessed(CtMethod candidate) {
+        return selector.isToBeProcessed(candidate);
+    }
+
+    @Override
     public void process(CtMethod ctMethod) {
 
         // Check if the method has a parent class implemented (useful to know the package)

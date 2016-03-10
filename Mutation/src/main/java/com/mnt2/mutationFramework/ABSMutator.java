@@ -30,6 +30,11 @@ public class ABSMutator extends AbstractProcessor<CtClass> {
     }
 
     @Override
+    public boolean isToBeProcessed(CtClass candidate) {
+        return selector.isToBeProcessed(candidate);
+    }
+
+    @Override
     public void process(CtClass ctClass) {
         List<CtBinaryOperator> bops = ctClass.getElements(new TypeFilter<>(CtBinaryOperator.class));
 

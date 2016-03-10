@@ -32,6 +32,12 @@ public class CRTInterfaceMutator extends AbstractProcessor<CtMethod> {
         super.init();
     }
 
+
+    @Override
+    public boolean isToBeProcessed(CtMethod candidate) {
+        return selector.isToBeProcessed(candidate);
+    }
+
     @Override
     public void process(CtMethod ctMethod) {
 
