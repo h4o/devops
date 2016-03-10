@@ -13,27 +13,11 @@ import spoon.support.reflect.declaration.CtClassImpl;
 /**
  * Created by user on 10/03/16.
  */
-public class CRTMutator extends AbstractProcessor<CtMethod> {
+public class CRTInterfaceMutator extends AbstractProcessor<CtMethod> {
     @Override
     public void process(CtMethod ctMethod) {
 
-        /* Replace the declared type by its superclas */
-        // Find the declaration of the objects belonging to the project package
-        ctMethod.getElements(new TypeFilter<>(CtVariableReference.class)).stream().filter(ctVariableReference -> ctVariableReference.getDeclaration() != null
-                && ctVariableReference.getDeclaration().getType() != null
-                && ctVariableReference.getDeclaration().getType().getPackage() != null
-                && ctVariableReference.getParent(CtClassImpl.class) != null
-                && ctVariableReference.getDeclaration().getType().getPackage().toString().contains(ctVariableReference.getParent(CtClassImpl.class).getPackage().toString())).forEach(ctVariableReference -> {
-
-            // Check if the found object has a SuperClass
-            if(ctVariableReference.getDeclaration().getType().getSuperclass() != null) {
-                // Replace the declaration type by its SuperClass
-                ctVariableReference.getDeclaration().setType(ctVariableReference.getDeclaration().getType().getSuperclass());
-            }
-        });
-
-        /* Replace the declared type by one of its interfac */
-        /*
+        /* Replace the declared type by one of its interface */
         // Find the declaration of the objects belonging to the project package
         ctMethod.getElements(new TypeFilter<>(CtVariableReference.class)).stream().filter(ctVariableReference -> ctVariableReference.getDeclaration() != null
                 && ctVariableReference.getDeclaration().getType() != null
@@ -51,6 +35,6 @@ public class CRTMutator extends AbstractProcessor<CtMethod> {
                 ctVariableReference.getDeclaration().setType((CtTypeReference) ref[0]);
             }
         });
-        */
+
     }
 }
