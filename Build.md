@@ -38,4 +38,4 @@ Pour construire notre framework il suffit :
             </dependencies>
         </plugin>
         
-
+* Et enfin faire la commande _mvn install_ dans le module **Mutation**
