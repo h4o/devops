@@ -7,4 +7,5 @@ import java.util.List;
  */
 public interface IParseTest {
     List<TestReport> parse(String filePath);
+    List<TestReport> parseFolderXML(String folderPath);
 }
