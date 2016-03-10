@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Rapport Tortues Ninja</title>
+    <title>Equipe 2 - Tortues Ninja</title>
 
     <!-- Bootstrap core CSS -->
     <link href="./css/bootstrap.min.css" rel="stylesheet">
@@ -65,20 +65,35 @@
 
 
 <div class="container">
-    <h2 class="page-header">Rapport général</h2>
-    <div class="progress">
-        <div class="progress-bar progress-bar-success" style="width: $NBMUTANTS%">
-            <!--$NBMUTANTS % Killed-->
+    <h2 class="page-header">Ninja report</h2>
+    <div class="row">
+        <div class="col-md-6" id="testReport">
+            Error : Test chart not printed
         </div>
-        <div class="progress-bar progress-bar-warning progress-bar-striped" style="width: 0%">
-            <span class="sr-only">0% Complete (Skipped)</span>
-        </div>
-        <div class="progress-bar progress-bar-danger" style="width: 0%">
-            <span class="sr-only">10% Complete (Survivors !)</span>
+        <div class="col-md-4 col-md-offset-2" id="chartContainer">
+            Error : Global chart (killed mutants) not printed
         </div>
     </div>
-    <div id="chartContainer" class="chart"></div>
-    $TABLEBODY
+    <div class="row">
+        <h2 class="page-header">Details</h2>
+        <div class="alert alert-info" role="alert">
+            <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+            <strong>Info :</strong> Click on the row to get details on the corresponded mutant
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th># Mutant</th>
+                    <th>Statut</th>
+                    <th># Test Succeed</th>
+                    <th># Test Failed</th>
+                </tr>
+            </thead>
+            <tbody>$TABLEBODY$
+            </tbody>
+        </table>
+    </div>
+    $MODALCONTENT$
 </div> <!-- /container -->
 
 <!-- Bootstrap core JavaScript
@@ -91,6 +106,54 @@
     /**
      * Created by cazala on 25/02/16.
      */
+    $(function () {
+        // Create the chart
+        var testChart = new Highcharts.Chart({
+            chart: {
+                type: 'column',
+                renderTo: 'testReport',
+
+            },
+            title: {
+                text: 'Tests Effectiveness'
+            },
+            subtitle: {
+                text: 'Mutants killed by at least one of these tests (can be killed by many tests)'
+            },
+            xAxis: {
+                type: 'category'
+            },
+            yAxis: {
+                title: {
+                    text: '# Mutants'
+                }
+
+            },
+            legend: {
+                enabled: false
+            },
+            plotOptions: {
+                series: {
+                    borderWidth: 0,
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.y:.1f}%'
+                    }
+                }
+            },
+
+            tooltip: {
+                headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+                pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+            },
+
+            series: [{
+                name: 'Tests',
+                colorByPoint: true,
+                data: [$DATATESTCHART$]
+            }]
+        });
+    });
     $(function () {
         var chart = new Highcharts.Chart({
             chart: {
@@ -105,13 +168,13 @@
                 colorByPoint: true,
                 data: [{
                     name: 'Killed',
-                    y: $NBMUTANTS
+                    y: $NBMUTANTSKILLED$
                 }, {
                     name: 'Skipped',
                     y: 0
                 }, {
                     name: 'Survived',
-                    y: 0
+                    y: $NBMUTANTSSURVIVED$,
                 }]
             }]
         });

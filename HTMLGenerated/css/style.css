@@ -10,6 +10,11 @@ body {
   color:darkred;
   font-weight: bold;
 }
+
+.success_txt {
+  color:darkgreen;
+  font-weight: bold;
+}
 .chart {
   width:100%;
   height:400px;
