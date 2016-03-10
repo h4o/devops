@@ -10,13 +10,37 @@ rm -r ./sample/output/tests/*
 
 for NAME in ${PROC_NAMES[@]}
 do
+	while read -r conf
+	do
+		PROC_PATH="com.mnt2.mutationFramework."${NAME}
+		if [[ ${NAME} = "LogicalOperatorMutator" || ${NAME} = "UnaryOperatorMutator" ]]
+			then
+			while read -r line
+			do
+			    
+			    ./template/generateXml.sh modifier $conf "./sample/target/report/" "$line" > ./config/config.xml
+				mvn test -f ${PATH_POM} -e -Dparam_processor=${PROC_PATH}
+				mv ./sample/target/mutationframework/* ./sample/output/processor/MUT-$((cpt)).xml
+			    mv ./sample/target/surefire-reports/TEST-* ./sample/output/tests/TEST-$((cpt)).xml
 
-	PROC_PATH="com.mnt2.mutationFramework."${NAME}
-	mvn test -f ${PATH_POM} -e -Dparam_processor=${PROC_PATH}
-	# mv ./sample/target/mutationframework/* ./sample/output/processor/MUT-$((cpt)).xml
-    mv ./sample/target/surefire-reports/TEST-* ./sample/output/tests/TEST-$((cpt)).xml
+		    	cpt=$((cpt + 1))
 
-    cpt=$((cpt + 1))
+			done < "./config/$NAME"
+		else
+			./template/generateXml.sh n $conf "./sample/target/report/" "$line" > ./config/config.xml
+			
+			mvn test -f ${PATH_POM} -e -Dparam_processor=${PROC_PATH}
+
+			mv ./sample/target/mutationframework/* ./sample/output/processor/MUT-$((cpt)).xml
+		    mv ./sample/target/surefire-reports/TEST-* ./sample/output/tests/TEST-$((cpt)).xml
+
+		    cpt=$((cpt + 1))
+		fi
+	done < "./config/selector"
+	rm .tmp
+
+	
+	
 done
 
 mvn clean compile -f "xmlAnalyzer/pom.xml" assembly:single

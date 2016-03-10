@@ -1,21 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<modifiers type="RANDOM" value="20" output="./sample/target/report/">
-	<modifier>
-		<before>
-			<value>GT</value>
-			<value>GE</value>
-		</before>
-		<after>
-			<value>LT</value>
-			<value>LE</value>
-		</after>
-	</modifier>
-	<modifier>
-		<before>
-			<value>LT</value>
-		</before>
-		<after>
-			<value>GT</value>
-		</after>
-	</modifier>
-</modifiers>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><modifiers type="ONESHOT" value="0" output="./sample/target/report/"><modifier>
+<before>
+<value>POSTDEC</value>
+<value>PREDEC</value>
+</before>
+<after>
+<value>POSTDEC</value>
+<value>PREDEC</value>
+</after>
+</modifier></modifiers>

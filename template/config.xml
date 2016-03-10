@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><modifiers type="ONESHOT" value="0" output="./sample/tes/"><modifier>
+<before>
+<value>GT</value>
+<value>LT</value>
+<value>LE</value>
+</before>
+<after>
+<value>GE</value>
+</after>
+</modifier></modifiers>
