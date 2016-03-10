@@ -37,24 +37,26 @@ de TestReport. TestReport est notre propre structure de données contenant toute
 d'un rapport. Le Generateur HTML est écrit en Java. Nous avons utilisé notre propre template. C'est à dire que dans le fichier
 index.html du module HTMLGenerated, se trouve des tags $NOM_TAG$ que l'on remplacera par le contenu souhaité. 
 
+
 **Les Forces** : Ayant l'habitude des changement, nous avons consacré du temps à définir une architecture
 modulaire de sortes à ce que l'on puisse changer chaque composant aisément. Nous voulions sur la fin passer à du AngularJS même si
 par manque de temps et par priorité cela n'a pas été fait. Ce changement n'aurait pas couté énormement de ressources sur ce module (nous aurions
 conçu un générateurJSON via la list de TestReport).
 Par contre la création du site web en lui même aurait mis plus de temps (reprises des cours de l'an dernier etc.)
 
-**Les faiblesses** : Nous avons perdu du temps en se préoccupant trop des performances. Nous avions un Parser en **SAX** qui est
+
+**Les Faiblesses** : Nous avons perdu du temps en se préoccupant trop des performances. Nous avions un Parser en **SAX** qui est
 compliqué à utiliser comparé à **JDOM**. Nous avons ensuite préféré passer à JDOM pour pouvoir prévoir les différentes améliorations du projet.
 Nous avons donc perdu du temps sur ce point-ci. Concernant le générateur HTML, ayant une template "faite main" son architecture fait peur.
 Nous réutilisons le générateur sur chaque fichier XML puis nous devons appeler une méthode pour pouvoir finaliser la génération de celui-ci.
 Nous aurions préféré générer du JSON pour déléguer la génération du contenu au module HTMLGenerated en AngularJS mais cette
 solution nous ait apparue trop tard.
 
-**Les Faiblesses**
 ### I.4 module HTMLGenerated
 
 Le but du rapport HTML étant de proposer des informations pertinentes sur le projet passé en entrée, nous avions du
 réfléchir à certains points tels que l'ergonomie et les données exposées. 
+
 
 Pour obtenir une Interface Homme Machine (IHM) fonctionnelle et tout de même plaisante nous avons utilisé le framework
 Bootstrap pour structurer notre page. Ce framework nous a ainsi permis de gagner concernant le positionnement des objets
@@ -68,11 +70,17 @@ l'expérience utilisateur.
 
 Autrement, le site web reste généré statiquement c'est pourquoi l'architecture de celui-ci reste standard.
 
+
+
 **Les Forces** : fait entièrement et correctement le job.
+
+
 **Les Faiblesses** : les fenêtre modales sont elles aussi générées statiquement. Ce qui signifie que le contenu est en dur
 dans le fichier html. Nous aurions préféré générer le contenu des fenêtres modales dynamiquement (avec des évènements onclick).
 pour réduire la taille du fichier html (il serait plus lisible). La seule différence est la méthode, mais cela aurait même été plus
 couteux en temps. Ce n'est donc une faiblesse mais aussi une force de l'avoir fait comme celà.
+
+
 
 ## Conclusion générale
 
