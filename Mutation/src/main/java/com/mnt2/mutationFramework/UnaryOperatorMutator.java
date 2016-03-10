@@ -5,6 +5,7 @@ import spoon.reflect.code.CtUnaryOperator;
 import spoon.reflect.code.UnaryOperatorKind;
 import spoon.reflect.declaration.CtElement;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -30,14 +31,18 @@ public class UnaryOperatorMutator extends AbstractProcessor<CtUnaryOperator> {
 
     @Override
     public boolean isToBeProcessed(CtUnaryOperator candidate){
-        return candidate instanceof CtUnaryOperator;
+        return selector.isToBeProcessed(candidate);
     }
 
-
+    @Override
+    public void processingDone(){
+        reporter.saveReport();
+    }
 
     public void process(CtUnaryOperator op){
-        List<String> kinds = reader.getModifiers(op.getKind().toString());
-        if(kinds != null){
+        List<String> modifiers = reader.getModifiers(op.getKind().toString());
+        if(modifiers != null){
+            List<String> kinds = new ArrayList<>(modifiers);
             kinds.remove(op.getKind());
             UnaryOperatorKind kind;
             kind = UnaryOperatorKind.valueOf(kinds.get(random.nextInt(kinds.size())));

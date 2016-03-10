@@ -41,9 +41,9 @@ public class LogicalOperatorMutator extends AbstractProcessor<CtBinaryOperator> 
 
     @Override
     public void process(CtBinaryOperator op) {
-
-        List<String> kinds = new ArrayList<>(reader.getModifiers(op.getKind().toString()));
-        if(kinds != null){
+        List<String> modifiers = reader.getModifiers(op.getKind().toString());
+        if(modifiers != null){
+            List<String> kinds = new ArrayList<>(modifiers);
             kinds.remove(op.getKind());
             BinaryOperatorKind kind;
             kind = BinaryOperatorKind.valueOf(kinds.get(random.nextInt(kinds.size())));

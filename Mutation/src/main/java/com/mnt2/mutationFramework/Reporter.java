@@ -13,10 +13,10 @@ public class Reporter {
     private String report;
     private String filename;
     private String folder;
-    public Reporter(String name,String position){
+    public Reporter(String position,String name){
         filename = name;
         folder = position;
-        report += "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>";
+        report = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>";
         report += "<processor name=\""+this.getClass().getName()+"\">";
 
 
@@ -38,6 +38,7 @@ public class Reporter {
 
 
     public void saveReport(){
+        report += "</processor>";
         try {
             File f = new File(folder);
             f.mkdirs();

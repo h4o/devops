@@ -1,7 +1,6 @@
 package com.mnt2.mutationFramework;
 
-import com.sun.org.apache.bcel.internal.generic.SWITCH;
-import com.sun.org.apache.bcel.internal.generic.Select;
+
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.JDOMException;
@@ -24,6 +23,7 @@ public class ConfigurationReader  {
     private String outputDir;
 
     public void readConfiguration(String filename,boolean readModifiers){
+        modifiers = new HashMap<>();
         SAXBuilder builder = new SAXBuilder();
         try {
             File f = new File("./config/config.xml");
