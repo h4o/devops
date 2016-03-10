@@ -41,12 +41,16 @@ public class ABSMutator extends AbstractProcessor<CtClass> {
         for (CtBinaryOperator cbo:bops
              ) {
             cbo.getElements(new TypeFilter<>(CtVariableAccess.class)).forEach(
-                    ctVariableAccess -> ctVariableAccess.replace(
-                            getFactory().Code().createCodeSnippetExpression(
-                                    "Math.abs("+ctVariableAccess+")"
-                            )));
-        }
+                    ctVariableAccess -> {
 
+                        if(ctVariableAccess.getType().toString().equals("int")) {
+                            ctVariableAccess.replace(
+                                    getFactory().Code().createCodeSnippetExpression(
+                                            "Math.abs(" + ctVariableAccess + ")"
+                                    ));
+                        }
+                    });
+        }
     }
 
     @Override
