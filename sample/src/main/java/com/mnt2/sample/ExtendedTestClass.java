@@ -7,6 +7,7 @@ public class ExtendedTestClass extends TestClass {
     @Override
     public int increment(int i){
         i += 10;
+        dumb(i);
         return i;
     }
 
