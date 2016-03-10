@@ -37,5 +37,15 @@ Pour construire notre framework il suffit :
               </dependency>
             </dependencies>
         </plugin>
+        <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.10</version>
+        <configuration>
+          <forkedProcessTimeoutInSeconds>5</forkedProcessTimeoutInSeconds>
+          <parallel>classes</parallel>
+          <threadCount>10</threadCount>
+        </configuration>
+      </plugin>
         
 * Et enfin faire la commande _mvn install_ dans le module **Mutation**
