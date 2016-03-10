@@ -19,6 +19,7 @@ public class OneShotSelector implements Selector {
     }
     @Override
     public boolean isToBeProcessed(CtElement element) {
+
         CtClass classToChange = element.getParent(CtClass.class);
         if(classToChange != null){
             System.out.println("class hashcode:"+classToChange.hashCode());
