@@ -52,6 +52,7 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version> 
+			<surefire.timeout>10</surefire.timeout>
 		</dependency>
 	</dependencies>
 
