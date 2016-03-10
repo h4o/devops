@@ -67,10 +67,16 @@
 <div class="container">
     <h2 class="page-header">Ninja report</h2>
     <div class="row">
-        <div class="col-md-6" id="testReport">
+        <div class="row">
+            <div class="alert alert-info col-md-6 col-md-offset-3" role="alert">
+                <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+                <strong>Info :</strong> Click on a bar to see tests in the corresponded class test
+            </div>
+        </div>
+        <div class="col-md-8" id="testReport">
             Error : Test chart not printed
         </div>
-        <div class="col-md-4 col-md-offset-2" id="chartContainer">
+        <div class="col-md-4" id="chartContainer">
             Error : Global chart (killed mutants) not printed
         </div>
     </div>
@@ -102,6 +108,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="./js/vendor/jquery.min.js"><\/script>')</script>
 <script src="./js/bootstrap.min.js"></script>
+<script src="./js/modules/drilldown.js"></script>
+
 <script>
     /**
      * Created by cazala on 25/02/16.
@@ -137,21 +145,26 @@
                     borderWidth: 0,
                     dataLabels: {
                         enabled: true,
-                        format: '{point.y:.1f}%'
+                        format: '{point.y:.0f}'
                     }
                 }
             },
 
             tooltip: {
                 headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-                pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+                pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.0f}</b> minimum<br/>'
             },
 
             series: [{
-                name: 'Tests',
+                name: 'TestClass',
                 colorByPoint: true,
                 data: [$DATATESTCHART$]
-            }]
+            }],
+            drilldown: {
+                series: [
+                    $DATADRILLDOWN$
+                ]
+            }
         });
     });
     $(function () {
@@ -170,13 +183,14 @@
                     name: 'Killed',
                     y: $NBMUTANTSKILLED$
                 }, {
-                    name: 'Skipped',
-                    y: 0
+                    name: 'StillBorn',
+                    y: $STILLBORN$
                 }, {
                     name: 'Survived',
                     y: $NBMUTANTSSURVIVED$,
                 }]
             }]
+
         });
     });
 </script>
