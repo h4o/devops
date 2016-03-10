@@ -33,7 +33,7 @@ de changer certains composants sans compromettre la santé du projet.
 Nous utilisons une interface IGenerator pour le Generateur de sortes que l'on puisse générer de l'AngularJS (par exemple)
 sans soucis. L'interface IParse définit que les objets qui transite entre le parseur et le Generateur sont des list d'objets
 de TestReport. TestReport est notre propre structure de données contenant toutes les informations pertinente pour la génération
-d'un rapport.
+d'un rapport. G
 
 ### I.4 module HTMLGenerated
 
